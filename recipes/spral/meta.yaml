@@ -37,6 +37,9 @@ requirements:
     - zlib
     # workaround for https://github.com/conda-forge/metis-feedstock/issues/35
     - metis 5.1.0
+  run:
+    # workaround for https://github.com/conda-forge/metis-feedstock/issues/35
+    - metis 5.1.0
 
 test:
   commands:
