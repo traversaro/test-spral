@@ -5,6 +5,8 @@ pkg-config --exists --print-errors --debug ipopt
 pkg-config --validate --print-errors --debug ipopt
 
 echo "Test the ipopt executable"
+export OMP_CANCELLATION=TRUE
+export OMP_PROC_BIND=TRUE
 ipopt mytoy.nl | grep -q "Optimal Solution"
 
 # Test linking against the ipopt library
