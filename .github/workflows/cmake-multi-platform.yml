@@ -44,4 +44,5 @@ jobs:
       run: |
             conda config --remove channels defaults
             conda config --env --set channel_priority strict
-            conda mambabuild -m ${CONDA_PREFIX}/conda_build_config.yaml .
+            conda mambabuild -m ${CONDA_PREFIX}/conda_build_config.yaml ./spral
+            conda mambabuild -m ${CONDA_PREFIX}/conda_build_config.yaml ./ipopt
