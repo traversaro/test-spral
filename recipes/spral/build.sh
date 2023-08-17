@@ -5,7 +5,7 @@
 export OMP_CANCELLATION=TRUE
 export OMP_PROC_BIND=TRUE
 
-export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib"
+export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib -lcblas"
 export CFLAGS="$CFLAGS -fPIC"
 export CPPFLAGS="$CPPFLAGS -fPIC"
 export FCFLAGS="$FCFLAGS -fPIC"
