@@ -28,6 +28,9 @@ cd build
 
 make -j${CPU_COUNT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+  # Environment variables needed by spral
+  export OMP_CANCELLATION=TRUE
+  export OMP_PROC_BIND=TRUE
   make test
 fi
 make install
