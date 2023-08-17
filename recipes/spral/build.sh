@@ -27,4 +27,4 @@ fi
 
 # We manually install to only install headers and shared library
 cp -r ../include/ $PREFIX
-cp ./libspral${SHLIB_EXT} $PREFIX/lib/libspral${SHLIB_EXT}
+cp ./libspral.a $PREFIX/lib/libspral.a

@@ -41,7 +41,7 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/include/spral.h  # [unix]
-    - test -f ${PREFIX}/lib/libspral${SHLIB_EXT}  # [unix]
+    - test -f ${PREFIX}/lib/libspral.a  # [unix]
 
 about:
   home: https://github.com/ralna/spral
