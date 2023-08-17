@@ -23,7 +23,7 @@ cd build
   --with-asl-lflags="-lasl" \
   --with-spral \
   --with-spral-cflags="-I${PREFIX}/include" \
-  --with-spral-lflags="-lspral" \
+  --with-spral-lflags="-lspral -lgomp -lblas -llapack -lhwloc -lmetis -lstdc++" \
   --prefix=${PREFIX}
 
 make -j${CPU_COUNT}
