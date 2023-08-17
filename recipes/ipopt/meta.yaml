@@ -15,6 +15,7 @@ build:
   number: 1
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x.x') }}
+    - 677.patch
 
 requirements:
   build:
