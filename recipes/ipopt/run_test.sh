@@ -22,4 +22,9 @@ else
 fi
 
 ./cpp_example mumps | grep -q "Optimal Solution"
-./cpp_example spral | grep -q "Optimal Solution"
+if [ $(uname -s) == 'Darwin' ]; then
+  # Environment variables needed by spral
+  export OMP_CANCELLATION=TRUE
+  export OMP_PROC_BIND=TRUE
+  ./cpp_example spral | grep -q "Optimal Solution"
+fi
