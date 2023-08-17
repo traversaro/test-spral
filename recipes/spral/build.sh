@@ -19,10 +19,10 @@ make check
 
 # Produce shared library, see https://github.com/ralna/spral/tree/v2023.08.02#generate-shared-library
 if [ "$(uname)" == "Linux" ]; then
-  $FC -fPIC -shared -Wl,--whole-archive libspral.a -Wl,--no-whole-archive -lgomp -lblas -llapack -lhwloc -lmetis -lstdc++ -o libspral${SHLIB_EXT}
+  $FC -fPIC -shared -Wl,--whole-archive -L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib libspral.a -Wl,--no-whole-archive -lgomp -lblas -llapack -lhwloc -lmetis -lstdc++ -o libspral${SHLIB_EXT}
 fi
 if [ "$(uname)" == "Darwin" ]; then
-  $FC -fPIC -shared -Wl,-all_load libspral.a -Wl,-noall_load -lgomp -lopenblas -lhwloc -lmetis -lstdc++ -o libspral${SHLIB_EXT}
+  $FC -fPIC -shared -Wl,-all_load libspral.a -Wl,-noall_load -L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib -lgomp -lopenblas -lhwloc -lmetis -lstdc++ -o libspral${SHLIB_EXT}
 fi
 
 # We manually install to only install headers and shared library
