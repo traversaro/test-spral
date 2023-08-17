@@ -1,10 +1,10 @@
 #!/bin/bash -e
 
-# Check .pc file
+echo "Check .pc file"
 pkg-config --exists --print-errors --debug ipopt
 pkg-config --validate --print-errors --debug ipopt
 
-# Test the ipopt binary
+echo "Test the ipopt executable"
 ipopt mytoy.nl | grep -q "Optimal Solution"
 
 # Test linking against the ipopt library
@@ -21,8 +21,10 @@ else
   ${CXX} -L$PREFIX/lib -lipopt -I$PREFIX/include/coin-or -o cpp_example cpp_example.o MyNLP.o
 fi
 
+echo "Test mumps linear solver"
 ./cpp_example mumps | grep -q "Optimal Solution"
-if [ $(uname -s) == 'Darwin' ]; then
+if [ $(uname -s) == 'Linux' ]; then
+  echo "Test spral linear solver"
   # Environment variables needed by spral
   export OMP_CANCELLATION=TRUE
   export OMP_PROC_BIND=TRUE
